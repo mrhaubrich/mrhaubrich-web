@@ -1,19 +1,18 @@
 'use client';
 
-import { useState } from 'react';
+import { useReducer } from 'react';
 
 import { AppShell, Burger, Group } from '@mantine/core';
 
 import { Brand } from '@/components/Brand/Brand';
 import { ColorSchemeToggleIcon } from '@/components/ColorSchemeToggleIcon/ColorSchemeToggleIcon';
+import { NavbarMinimal } from '@/components/Navbar/Navbar';
 
 export default function HomePage() {
-  const [opened, setOpened] = useState(false);
-  const toggle = () => setOpened((o) => !o);
+  const [opened, toggle] = useReducer((o) => !o, false);
 
   return (
     <>
-
       <AppShell
         header={{ height: 60 }}
         navbar={{
@@ -25,18 +24,15 @@ export default function HomePage() {
       >
         <AppShell.Header>
           <Group justify="space-between">
-            <Burger
-              opened={opened}
-              onClick={toggle}
-              hiddenFrom="sm"
-              size="sm"
-            />
+            <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
             <Brand />
             <ColorSchemeToggleIcon mr={10} />
           </Group>
         </AppShell.Header>
 
-        <AppShell.Navbar p="md">Navbar</AppShell.Navbar>
+        {/* <AppShell.Navbar> */}
+        <NavbarMinimal />
+        {/* </AppShell.Navbar> */}
 
         <AppShell.Main>Main</AppShell.Main>
       </AppShell>

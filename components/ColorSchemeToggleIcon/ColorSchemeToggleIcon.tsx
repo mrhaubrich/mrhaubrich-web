@@ -14,7 +14,7 @@ type ColorSchemeToggleIconProps = {
 };
 
 export function ColorSchemeToggleIcon({ m, mr, style, mb, mt, ml }: ColorSchemeToggleIconProps) {
-  const { setColorScheme } = useMantineColorScheme();
+  const { toggleColorScheme } = useMantineColorScheme();
   const computedColorScheme = useComputedColorScheme('light', { getInitialValueInEffect: true });
 
   const getTooltipLabel = () => computedColorScheme === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
@@ -23,7 +23,7 @@ export function ColorSchemeToggleIcon({ m, mr, style, mb, mt, ml }: ColorSchemeT
     <Group justify="center" m={m} mr={mr} style={style} ml={ml} mb={mb} mt={mt}>
       <Tooltip label={getTooltipLabel()} position="left" withArrow>
         <ActionIcon
-          onClick={() => setColorScheme(computedColorScheme === 'light' ? 'dark' : 'light')}
+          onClick={toggleColorScheme}
           variant="default"
           size="xl"
           aria-label="Toggle color scheme"

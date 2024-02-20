@@ -1,0 +1,35 @@
+/* Navbar.module.css */
+
+.navbar {
+    /* Adjust the transition for smoothness */
+    transition: width 0.3s ease;
+  }
+  
+  .navbarExpanded {
+    width: 240px; /* Expanded width */
+  }
+  
+  .navbarCollapsed {
+    width: 50px; /* Collapsed width or just enough for icons */
+  }
+  
+  .link {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and label */
+  }
+  
+  .linkLabel {
+    /* This will hide the label text when navbar is collapsed */
+    white-space: nowrap;
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+  }
+  
+  .navbarCollapsed .linkLabel {
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  /* Add additional styling as needed */
+  
