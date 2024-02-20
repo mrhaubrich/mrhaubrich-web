@@ -20,4 +20,5 @@ export const theme = createTheme({
     myColor,
   },
   primaryColor: 'myColor',
+  defaultRadius: 'md',
 });
